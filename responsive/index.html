@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    
+    <title> Responsive Project </title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script src="js/jquery.js"></script>
+
+    <script>
+      var showWidth = 1;
+
+      if (showWidth == 1) {
+        $(document).ready(function() {
+          $(window).resize(function() {
+            var width = $(window).width();
+            document.getElementById('output_width').innerHTML = "Window Width:" + width.toString();
+          });
+        });
+      }
+    </script>
+
+  </head>
+
+  <body>
+
+    <div id="output_width"></div>
+    <div id="container">
+
+      <header class="main_header">
+
+        <img id="logo" src="img/logo.png" alt="Responsive Project" />
+
+        <nav class="main-nav">
+
+          <ul>
+            <li>
+              <a class="active" href="#">Home</a>
+            </li>
+            <li>
+              <a href="#">Learn</a>
+            </li>
+            <li>
+              <a href="#">Brainstorm</a>
+            </li>
+            <li>
+              <a href="#">Create</a>
+            </li>
+            <li>
+              <a href="#">Collaborate</a>
+            </li>
+            <li>
+              <a href="#">Teach</a>
+            </li>
+          </ul>
+
+        </nav>
+
+      </header>
+
+      <div id="main">
+
+        <div id="content">
+
+          <article class="art1">
+
+            <header class="art-header">
+
+              <h2 class="title">
+                <a href="#">First Post</a>
+              </h2>
+
+              <span> created By: Jude santos on Sept. 21, 2017</span>
+
+            </header>
+
+            <p>
+              Lorem ipsum dolor sit amet. consectetur adispicing elit. Vivamus arcu est, laicinia et nisi dec,
+            </p>
+            <p>
+              Aenean in tellus ut nibh dignissim adipiscing nec eget libero> Donec eu diam quam. Sed fermentr
+            </p>
+            <a class="readmore" href="#">Read More</a>
+          </article>
+
+          <article class="art2">
+              <header class="art-header">
+                <h2 class="title"><a href="#">Second Post</a></h2>
+                <span>Created By: Jude Santos on Aug. 1, 2017</span>
+                <p>
+                  In in rutrum sapien. Ut telles nibh, facilisis faicibus pulvinar vitae, dafitties at orci. In se
+                </p>
+                <p>
+                  Aliquam tristique auque vitae urna aliquet, et valuptat metus gravida. Mauris nec ornare nisl.
+                </p>
+                <a class="readmore" href="#">Read More</a>
+              </header>
+          </article>
+        </div>
+
+        <aside id="sidebar">
+
+          <div class="block">
+
+            <h2>Top Sidebar</h2>
+
+            <p>
+              Donec et diam quam sed fermentum elementum ultrices aliquam erat voluptat. In gravidad
+            </p>
+
+          </div>
+
+          <div class="block">
+
+            <h2>Mid Sidebar</h2>
+
+            <p>
+              Fermentum elementum ultrices aliquam erat volutpat. In gravida nunc a metus aodales.
+            </p>
+
+          </div>
+
+          <div class="block">
+
+            <h2>Bottom Sidebar</h2>
+
+            <p>
+              Donec eu diam qoam sed fermentum elementum ultrices aliquam erat voluptat. In gravidad.
+            </p>
+
+          </div>
+
+        </aside>
+
+      </div>
+
+      <div class="clr"></div>
+
+      <footer>
+        <p>
+          Copyright &copy; 2017 Responsive Project
+        </p>
+      </footer>
+
+    </div>
+
+  </body>
+
+</html>
