@@ -44,19 +44,19 @@ footer div p {
 
 #main {
   display: block;
-  overflow: auto;
+  overflow: hidden;
   margin-bottom: 50px;
 }
 
 #container {
   width: 100%;
   margin: 0 auto;
-  overflow: auto;
+  overflow: hidden;
   clear: both;
 }
 
 #content {
-  overflow: auto;
+  overflow: hidden;
   transition: width 1s;
 }
 
@@ -67,7 +67,7 @@ footer div p {
 #sub_content {
   width: 60%;
   float:left;
-  overflow: auto;
+  overflow: hidden;
   transition: width 1s;
 }
 
@@ -136,7 +136,7 @@ footer div p {
   position: relative;
 }
 
-.main_header img#logo {
+.main_header a img#logo {
   margin: 0 0 0 47px;
   width:23.6%;
 }
@@ -170,9 +170,15 @@ footer div p {
   text-decoration: none;
 }
 
+.main_header .main_nav li a.active {
+  color:#4a4a4a;
+}
+
 .section_divider img {
-  margin:auto;
   width: 100%;
+  margin: auto;
+  display: block;
+  transition: width 1s height 2s;
 }
 
 .download_brochure {
@@ -191,7 +197,6 @@ footer div p {
 .img_container {
   display: block;
   margin-top: 45px;
-  padding: 0 10px 0 60px;
 }
 
 .img_container img {
@@ -208,4 +213,154 @@ footer div p {
 
 .partners_logo img {
   width: 100%;
+}
+
+
+/* tablet/ipads | portrait and Landscapei */
+@media only screen and (min-width: 768px) and (max-width: 960px) {
+
+  #sub_content .description {
+    padding: 10px 40px 10px 20px;
+  }
+
+  .contact #block {
+    padding: 5px 10px;
+  }
+
+  .contact #block #contact_forms {
+    width: 90%;
+  }
+}
+
+/* smaller tablets ortrait and Landscapei */
+@media only screen and (min-width: 569px) and (max-width: 767px) {
+  #sub_content .description {
+    padding: 10px 40px 10px 20px;
+  }
+
+  .contact #block {
+    padding: 5px 10px;
+  }
+
+  .contact #block #contact_forms {
+    width: 90%;
+  }
+  
+  .download_brochure {
+    padding: 0px 10px 0px 0px;
+  }
+
+  #home_footer div {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  #home_footer div p {
+    margin: auto;
+    display: block;
+    text-align: center;
+    width: 100%;
+    padding: 0px;
+  }
+
+  footer div {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  footer div p {
+    margin: auto;
+    display: block;
+    text-align: center;
+    width: 100%;
+    padding: 0px;
+  }
+
+
+}
+
+/*  smart  phones | portrait and Landscape */
+@media only screen and (min-width: 240px) and (max-width: 568px) {
+  .main_header a img#logo {
+    margin: auto;
+    width: 25%;
+    height: 65%;
+    display: block;
+  }
+
+  .main_header a {
+    margin: auto;
+    width: 100%;
+  }
+
+  .main_header .main_nav {
+    display: block;
+    margin-right: 20px;
+    height: auto;
+  }
+
+  .main_header .main_nav li {
+    float:right;
+    font-size: 100%;
+    margin-right: 20px;
+  }
+
+  #sub_content {
+    width: 100%;
+    display: block;
+    margin: auto;
+  }
+
+  #sub_content .description {
+    font-size: 100%;
+    padding: 0px 10px 0px 10px;
+  }
+
+  .contact {
+    width: 100%;
+    margin: auto;
+    display: block;
+  }
+  .contact #block {
+    padding: 3px 5px;
+  }
+
+  .contact #block #contact_forms {
+    width: 100%;
+  }
+
+  .download_brochure {
+    padding: 0px 10px 0px 0px;
+  }
+
+  .img_container {
+    margin-top: 15px;
+  }
+
+  #home_footer div {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  #home_footer div p {
+    margin: auto;
+    display: block;
+    text-align: center;
+    width: 100%;
+    padding: 0px;
+  }
+
+  footer div {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  footer div p {
+    margin: auto;
+    display: block;
+    text-align: center;
+    width: 100%;
+    padding: 0px;
+  }
+
 }

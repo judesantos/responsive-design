@@ -144,9 +144,7 @@ footer p {
   }
 
   .main_header img#logo {
-    margin:auto;
-    display: block;
-    width: 65%;
+    width: 10%;
     transition: width 1s;
   }
 
