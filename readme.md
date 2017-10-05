@@ -11,7 +11,8 @@ This repository contains projects demonstrating responsive design using html5, c
 
 ![responsive-desktop](https://user-images.githubusercontent.com/22108221/31213143-c3a418c0-a959-11e7-9fa4-a112e99b516d.png)
 
-
+#
+#
 
 # Newhall-Crossings
 
