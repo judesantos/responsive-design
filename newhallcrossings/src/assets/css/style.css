@@ -56,8 +56,10 @@ footer div p {
 }
 
 #content {
+  display: block;
   overflow: hidden;
   transition: width 1s;
+  width: 100%;
 }
 
 #banner {
@@ -92,6 +94,7 @@ footer div p {
 .contact #block #contact_forms {
   width: 80%;
   padding-top: 14px;
+  transition: width 1s, height 1s;
 }
 
 .contact #block #contact_forms input {
@@ -134,11 +137,27 @@ footer div p {
 .main_header {
   height: 118px;
   position: relative;
+  box-sizing: border-box;
 }
 
 .main_header a img#logo {
   margin: 0 0 0 47px;
   width:23.6%;
+}
+
+.main_header .info_nav {
+  position: absolute;
+  margin-top:2px;
+  width: 100%;
+}
+
+.main_header .info_nav span {
+  float: right;
+  margin-right: 33px;
+  /*
+  font-size: 18px;
+  */
+  color: #4a4a4a;
 }
 
 .main_header .main_nav {
@@ -178,7 +197,7 @@ footer div p {
   width: 100%;
   margin: auto;
   display: block;
-  transition: width 1s height 2s;
+  transition: width 1s, height 1s;
 }
 
 .download_brochure {
@@ -219,6 +238,17 @@ footer div p {
 /* tablet/ipads | portrait and Landscapei */
 @media only screen and (min-width: 768px) and (max-width: 960px) {
 
+  .main_header .info_nav {
+    margin-top: 2px;
+  }
+
+  .main_header .info_nav span {
+    float: right;
+    text-align: right;
+    width: 70%;
+    transition: width 1s;
+  }
+
   #sub_content .description {
     padding: 10px 40px 10px 20px;
   }
@@ -234,8 +264,27 @@ footer div p {
 
 /* smaller tablets ortrait and Landscapei */
 @media only screen and (min-width: 569px) and (max-width: 767px) {
+
+  .main_header .info_nav span {
+    float: right;
+    text-align: right;
+    margin-right: 5px;
+    font-size: 100%;
+    width: 80%;
+    line-height: 1em;
+    transition: width 1s;
+  }
+
+  .main_header a img#logo {
+
+    margin-left: 20px;
+    display: block;
+    transition: width 1s, height 1s;
+  }
+
   #sub_content .description {
     padding: 10px 40px 10px 20px;
+    transition: width 1s, height 1s;
   }
 
   .contact #block {
@@ -244,8 +293,9 @@ footer div p {
 
   .contact #block #contact_forms {
     width: 90%;
+    transition: width 1s, height 1s;
   }
-  
+
   .download_brochure {
     padding: 0px 10px 0px 0px;
   }
@@ -281,11 +331,28 @@ footer div p {
 
 /*  smart  phones | portrait and Landscape */
 @media only screen and (min-width: 240px) and (max-width: 568px) {
+  .main_header .info_nav {
+    display: block;
+    position: relative;
+  }
+
+  .main_header .info_nav span {
+    float: right;
+    text-align: right;
+    margin-right: 5px;
+    font-size: 90%;
+    width: 90%;
+    line-height: 1em;
+    transition: width 1s;
+  }
+
   .main_header a img#logo {
+    position:relative;
     margin: auto;
     width: 25%;
-    height: 65%;
+    height: 75%;
     display: block;
+    transition: width 1s, height 1s;
   }
 
   .main_header a {
@@ -294,6 +361,7 @@ footer div p {
   }
 
   .main_header .main_nav {
+    position: relative;
     display: block;
     margin-right: 20px;
     height: auto;
@@ -305,6 +373,10 @@ footer div p {
     margin-right: 20px;
   }
 
+  #main_retail {
+    display: block;
+  }
+
   #sub_content {
     width: 100%;
     display: block;
@@ -314,6 +386,7 @@ footer div p {
   #sub_content .description {
     font-size: 100%;
     padding: 0px 10px 0px 10px;
+    transition: width 1s, height 1s;
   }
 
   .contact {
@@ -327,6 +400,7 @@ footer div p {
 
   .contact #block #contact_forms {
     width: 100%;
+    transition: width 1s, height 1s;
   }
 
   .download_brochure {
