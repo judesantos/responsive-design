@@ -204,7 +204,7 @@ footer div p {
   display: block;
   margin: auto;
   text-align: left;
-  padding: 10px 120px 10px 80px;
+  padding: 10px 120px 10px 0px;
   width: 100%;
 }
 
@@ -216,6 +216,13 @@ footer div p {
 .img_container {
   display: block;
   margin-top: 45px;
+  padding: 0px 25px 52px 25px;
+}
+
+.img_container span {
+    height: 63px;
+    line-height: 5em;
+    font-size: 120%;
 }
 
 .img_container img {
@@ -228,16 +235,15 @@ footer div p {
 .img_container_main_street {
   display: block;
   background-color: #e5e5e5;
-  /*
   margin-top: 45px;
-  */
   padding: 0px 25px 52px 25px;
 }
 
-.img_container_main_street h3 {
+.img_container_main_street span {
     height: 63px;
     background-color: #e5e5e5;
-    line-height: 6em;
+    line-height: 5em;
+    font-size: 120%;
 }
 
 .img_container_main_street img {
@@ -284,7 +290,7 @@ footer div p {
   }
 
   .download_brochure {
-    padding: 0px 10px 0px 20px;
+    padding: 0px 10px 0px 0px;
   }
 }
 
@@ -323,7 +329,7 @@ footer div p {
   }
 
   .download_brochure {
-    padding: 0px 10px 0px 20px;
+    padding: 0px 10px 0px 0px;
   }
 
   #home_footer div {
@@ -354,6 +360,13 @@ footer div p {
 
   .img_container {
     margin-top: 25px;
+    padding: 0px 10px 25px 10px;
+  }
+
+  .img_container span {
+      font-size: 90%;
+      height: 30px;
+      line-height: 4em;
   }
 
   .img_container_main_street {
@@ -361,7 +374,7 @@ footer div p {
     padding: 0px 10px 25px 10px;
   }
 
-  .img_container_main_street h3 {
+  .img_container_main_street span {
       font-size: 90%;
       height: 30px;
       line-height: 4em;
@@ -449,6 +462,13 @@ footer div p {
 
   .img_container {
     margin-top: 15px;
+    padding: 0px 10px 25px 10px;
+  }
+
+  .img_container span {
+      font-size: 90%;
+      height: 30px;
+      line-height: 4em;
   }
 
   .img_container_main_street {
@@ -456,7 +476,7 @@ footer div p {
     padding: 0px 10px 25px 10px;
   }
 
-  .img_container_main_street h3 {
+  .img_container_main_street span {
       font-size: 90%;
       height: 30px;
       line-height: 4em;
