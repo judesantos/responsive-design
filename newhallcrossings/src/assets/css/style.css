@@ -225,6 +225,28 @@ footer div p {
   display: block;
 }
 
+.img_container_main_street {
+  display: block;
+  background-color: #e5e5e5;
+  /*
+  margin-top: 45px;
+  */
+  padding: 0px 25px 52px 25px;
+}
+
+.img_container_main_street h3 {
+    height: 63px;
+    background-color: #e5e5e5;
+    line-height: 6em;
+}
+
+.img_container_main_street img {
+  height: auto;
+  width: 100%;
+  box-sizing: border-box;
+  display: block;
+}
+
 .partners_logo {
   display: block;
   margin-top: 45px;
@@ -259,6 +281,10 @@ footer div p {
 
   .contact #block #contact_forms {
     width: 90%;
+  }
+
+  .download_brochure {
+    padding: 0px 10px 0px 20px;
   }
 }
 
@@ -297,7 +323,7 @@ footer div p {
   }
 
   .download_brochure {
-    padding: 0px 10px 0px 0px;
+    padding: 0px 10px 0px 20px;
   }
 
   #home_footer div {
@@ -326,6 +352,20 @@ footer div p {
     padding: 0px;
   }
 
+  .img_container {
+    margin-top: 25px;
+  }
+
+  .img_container_main_street {
+    margin-top: 25px;
+    padding: 0px 10px 25px 10px;
+  }
+
+  .img_container_main_street h3 {
+      font-size: 90%;
+      height: 30px;
+      line-height: 4em;
+  }
 
 }
 
@@ -409,6 +449,17 @@ footer div p {
 
   .img_container {
     margin-top: 15px;
+  }
+
+  .img_container_main_street {
+    margin-top: 15px;
+    padding: 0px 10px 25px 10px;
+  }
+
+  .img_container_main_street h3 {
+      font-size: 90%;
+      height: 30px;
+      line-height: 4em;
   }
 
   #home_footer div {
