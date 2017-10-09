@@ -12,7 +12,6 @@ footer {
   width: 100%;
   height: 74px;
   line-height: 18px;
-  font-family: HelveticaNeue-Thin;
   background-color: #4a4a4a;
   display: table;
 }
@@ -31,6 +30,13 @@ footer div p {
   text-align: center;
   color: #fff;
   display: inline;
+  font-size: 90%;
+  font-family: inherit;
+
+}
+footer div p a {
+  color: #fff;
+  text-decoration: none;
 }
 
 #home_footer {
@@ -40,6 +46,11 @@ footer div p {
 #home_footer div p {
   padding-top: 30px;
   color: #4a4a4a;
+}
+
+#home_footer div p a {
+  color: #4a4a4a;
+  text-decoration: none;
 }
 
 #main {
@@ -74,7 +85,7 @@ footer div p {
 }
 
 #sub_content .description {
-  margin-top: 10px;
+  margin-top: 40px;
   padding: 10px 120px 10px 80px;
   line-height: 20px;
   font-size: 15px;
@@ -115,7 +126,7 @@ footer div p {
 .frm_button {
   line-height: 21px;
   box-sizing: border-box;
-  font-size: 140%;
+  font-size: 90%;
   border-radius: 7px;
   border: 1px solid #979797;
   height: 36px;
