@@ -79,15 +79,20 @@ else {
 
 if ($status == 0)
 {
-  $to = "jude.msantos@gmail.com, debimortola@gmail.com";
+  $to = "";
+
   if ($type === 'retail') {
+    $to = "rcude@naicapital.com";
     $subject = 'Retail';
   } else {
+    $to = "newhallcrossings@gmail.com";
     $subject = 'Residential';
   }
 
   $subject .= " Newhall-Crossings interest from $name";
   $message = "\n\n\nRequest Details:\n\n$message";
+  $header[] = "From: $from";
+  $header[] = "Bcc: debimortola@gmail.com"
 
   if (mail($to, $subject, $message, "From: $from")) {
     $error = "Thank you for your interest. We will be in touch soon.";
