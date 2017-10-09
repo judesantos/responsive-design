@@ -27,13 +27,13 @@
         <nav class="info_nav">
           <span>For leasing info call Bert Able, John Cserkuti, or Randy Cude @ 661-705-3550</span>
         </nav>
-        <a href="newhall.html">
+        <a href="./newhall">
           <img id="logo" src="./assets/img/newhall_logo_white.png" />
         </a>
         <nav class="main_nav">
           <ul>
             <li>
-              <a href="newhall-residences.html">RESIDENCES</a>
+              <a href="./newhall-residences">RESIDENCES</a>
             </li>
             <li>
               <a class="active" href="#">RETAIL</a>
@@ -79,9 +79,11 @@
                 <input name="date" id="date" type="date" placeholder="Desired Move in Date"/>
                 <input name="tenant" id="tenant" type="text" placeholder="Name of Tenant"/>
                 <input name="tenantType" id="tenantType" type="text" placeholder="Type of Tenant"/>
+                <label id="lblError" class="error" style="visibility:hidden;display:block !important;"></label>
                 <div class="frm_buttons">
-                  <button class="frm_button" style="width:49%;float:left;" onclick="clearForm();">Clear</button>
-                  <input id="submit" class="frm_button" style="width:49%;float:right;" type="submit" value="Submit"/>
+                  <button class="frm_button" style="width:49%;float:left;" onclick="clearForm(event);">Clear</button>
+                  <button name="submit" id="submit" class="frm_button" style="width:49%;float:right;"
+                    type="submit">Submit</button>
                 </div>
               </form>
             </div>
@@ -116,16 +118,13 @@
     <script src="./assets/js/jquery.min.js" type="text/javascript"></script>
     <script src="./assets/js/jquery.validate.js" type="text/javascript"></script>
     <script src="./assets/js/additional-methods.js" type="text/javascript"></script>
+    <script src="./assets/js/mailer.js" type="text/javascript"></script>
 
     <script>
 
-      var form = $('#retail_form');
-
-      function clearForm() {
-      }
-
-      jQuery(function() {
-        form.validate({
+      function setupValidator()
+      {
+        $('#retail_form').validate({
           rules: {
             name: {
               required: true,
@@ -180,7 +179,65 @@
             },
           }
         })
+      }
+
+      function clearForm(event) {
+        event.preventDefault();
+        var form = $('#retail_form')
+        var validator = form.validate();
+        validator.reset();
+        validator.resetForm();
+        form[0].reset();
+      }
+
+      function handleResponse(res) {
+        if (typeof res.status !== 'undefined' &&
+            0 == res.status)
+        {
+          alert(res.error)
+          clearForm();
+        } else {
+          $('#lblError').text(res.error);
+          $('#lblError').css('visibility', 'visible')
+          $('#lblError').css('display', 'block')
+        }
+      }
+
+      function setupForm()
+      {
+        var form = $('#retail_form')
+        // process the form
+        form.submit(function(event) {
+            $('#lblError').css('visibility', 'hidden')
+            $('#lblError').css('display', 'none')
+            // get the form data
+            var method = form.attr('method')
+            var url = form.attr('action')
+            var data = {
+              'type': 'retail',
+              'name': $('#name').val(),
+              'email': $('#email').val(),
+              'Phone': $('#phone').val(),
+              'Move in Date': $('#date').val(),
+              'Tenant': $('#tenant').val(),
+              'Tenant Type': $('#tenantType').val(),
+            };
+            send_mail(method, url, data, function(res) {
+              handleResponse(JSON.parse(res))
+            },
+            function(err) {
+              handleResponse(JSON.parse(err))
+            });
+            // stop the form from submitting the normal way and refreshing the page
+            event.preventDefault();
+        });
+      }
+
+      $(document).ready(function() {
+        setupValidator();
+        setupForm();
       })
+
     </script>
 
   </body>
