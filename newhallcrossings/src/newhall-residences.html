@@ -208,32 +208,42 @@
         {
           var form = $('#residential_form')
           // process the form
-          form.submit(function(event) {
-              $('#lblError').css('visibility', 'hidden')
-            $('#lblError').css('display', 'none')
-              // get the form data
-              var method = form.attr('method')
-              var url = form.attr('action')
-              var data = {
-                'type': 'residential',
-                'name': $('#name').val(),
-                'email': $('#email').val(),
-                'Phone': $('#phone').val(),
-                'No. of Bedrooms': $('#beds').val(),
-                'No. of Occupants': $('#occupants').val(),
-                'Move in Date': $('#date').val(),
-                'Age': $('#age').val(),
-                'Moving From': $('#from').val(),
-              };
-              send_mail(method, url, data, function(res) {
-                handleResponse(JSON.parse(res))
-              },
-              function(err) {
-                handleResponse(JSON.parse(err))
+          // monitor submit event and check if validation passed, if not. cancel submit.
+          form.on('submit', function(e) {
+            var valid = form.valid();
+            if (!valid) {
+              e.preventDefault();
+            }
+            else
+            {
+              form.submit(function(event) {
+                  $('#lblError').css('visibility', 'hidden')
+                $('#lblError').css('display', 'none')
+                  // get the form data
+                  var method = form.attr('method')
+                  var url = form.attr('action')
+                  var data = {
+                    'type': 'residential',
+                    'name': $('#name').val(),
+                    'email': $('#email').val(),
+                    'Phone': $('#phone').val(),
+                    'No. of Bedrooms': $('#beds').val(),
+                    'No. of Occupants': $('#occupants').val(),
+                    'Move in Date': $('#date').val(),
+                    'Age': $('#age').val(),
+                    'Moving From': $('#from').val(),
+                  };
+                  send_mail(method, url, data, function(res) {
+                    handleResponse(JSON.parse(res))
+                  },
+                  function(err) {
+                    console.error(err)
+                  });
+                  // stop the form from submitting the normal way and refreshing the page
+                  event.preventDefault();
               });
-              // stop the form from submitting the normal way and refreshing the page
-              event.preventDefault();
-          });
+            }
+          })
         }
 
         $(document).ready(function() {
