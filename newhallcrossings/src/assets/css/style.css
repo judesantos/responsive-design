@@ -8,6 +8,10 @@ body {
    text-align: left;
 }
 
+*:focus {
+  outline: 0 !important;
+}
+
 footer {
   width: 100%;
   height: 74px;
