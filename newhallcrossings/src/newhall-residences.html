@@ -24,7 +24,7 @@
     <div id="container">
 
       <header class="main_header">
-        <a href="newhall.html">
+        <a href="./newhall">
           <img id="logo" src="./assets/img/newhall_logo_white.png" />
         </a>
         <nav class="main_nav">
@@ -33,7 +33,7 @@
               <a class="active" href="#">RESIDENCES</a>
             </li>
             <li>
-              <a href="newhall-retail.html">RETAIL</a>
+              <a href="./newhall-retail">RETAIL</a>
             </li>
           </ul>
         </nav>
@@ -65,20 +65,22 @@
         <aside class="contact">
           <div id="block">
             <div id="contact_forms">
-              <form id="residential_form" method="post" action="">
+              <form id="residential_form" method="post" action="./mailer.php">
                 <label>Interest List</label>
                 <input name="name" id="name" type="text" placeholder="Name"/>
-                <input name="email" id="email" type="text" placeholder="Email"/>
-                <input name="phone" id="phone" type="text" placeholder="Phone Number"/>
-                <input name="beds" id="beds" type="text" placeholder="Number of Bedrooms"/>
+                <input name="email" id="email" type="email" placeholder="Email"/>
+                <input name="phone" id="phone" type="tel" placeholder="Phone Number"/>
+                <input name="beds" id="beds" type="number" placeholder="Number of Bedrooms"/>
                 <input name="occupants" id="occupants" type="text" placeholder="Number of Occupants"/>
-                <input name="date" id="date" type="text" placeholder="Desired Move in Date (mm/dd/yyyy)"/>
-                <input name="age" id="age" type="text" placeholder="Age"/>
+                <input name="date" id="date" type="date" placeholder="Desired Move in Date"/>
+                <input name="age" id="age" type="number" placeholder="Age"/>
                 <input name="from" id="from" type="text" placeholder="Where you are moving from?"/>
                 <input name="heardAbout" id="heardAbout" type="text" placeholder="How did you hear about us?"/>
+                <label id="lblError" class="error" style="visibility:hidden;display:block !important;"></label>
                 <div class="frm_buttons">
-                  <button class="frm_button" style="width:49%;float:left;" onlick="clearResidencesForm();">Clear</button>
-                  <input class="frm_button" style="width:49%;float:right;" type="submit" value="Submit" />
+                  <button class="frm_button" style="width:49%;float:left;" onclick="clearForm(event);">Clear</button>
+                  <button name="submit" id="submit" class="frm_button" style="width:49%;float:right;"
+                    type="submit">Submit</button>
                 </div>
               </form>
             </div>
@@ -102,10 +104,13 @@
     <script src="./assets/js/jquery.min.js" type="text/javascript"></script>
     <script src="./assets/js/jquery.validate.js" type="text/javascript"></script>
     <script src="./assets/js/additional-methods.js" type="text/javascript"></script>
+    <script src="./assets/js/mailer.js" type="text/javascript"></script>
 
     <script>
 
-      jQuery(function() {
+      function setupValidator()
+      {
+
         $('#residential_form').validate({
           rules: {
             name: {
@@ -175,7 +180,67 @@
             },
           }
         })
-      })
+      }
+
+      function clearForm(event) {
+          event.preventDefault();
+          var form = $('#residential_form')
+          var validator = form.validate();
+          validator.reset();
+          validator.resetForm();
+          form[0].reset();
+        }
+
+        function handleResponse(res) {
+          if (typeof res.status !== 'undefined' &&
+              0 == res.status)
+          {
+            alert(res.error)
+            clearForm();
+          } else {
+            $('#lblError').text(res.error);
+            $('#lblError').css('visibility', 'visible')
+            $('#lblError').css('display', 'block')
+          }
+        }
+
+        function setupForm()
+        {
+          var form = $('#residential_form')
+          // process the form
+          form.submit(function(event) {
+              $('#lblError').css('visibility', 'hidden')
+            $('#lblError').css('display', 'none')
+              // get the form data
+              var method = form.attr('method')
+              var url = form.attr('action')
+              var data = {
+                'type': 'residential',
+                'name': $('#name').val(),
+                'email': $('#email').val(),
+                'Phone': $('#phone').val(),
+                'No. of Bedrooms': $('#beds').val(),
+                'No. of Occupants': $('#occupants').val(),
+                'Move in Date': $('#date').val(),
+                'Age': $('#age').val(),
+                'Moving From': $('#from').val(),
+              };
+              send_mail(method, url, data, function(res) {
+                handleResponse(JSON.parse(res))
+              },
+              function(err) {
+                handleResponse(JSON.parse(err))
+              });
+              // stop the form from submitting the normal way and refreshing the page
+              event.preventDefault();
+          });
+        }
+
+        $(document).ready(function() {
+          setupValidator();
+          setupForm();
+        })
+
     </script>
 
   </body>
