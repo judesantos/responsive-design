@@ -8,8 +8,12 @@ body {
    text-align: left;
 }
 
-*:focus {
-  outline: 0 !important;
+button::-moz-focus-inner {
+  border: 0;
+}
+
+a, a:active, a:focus {
+  outline: none;
 }
 
 footer {
